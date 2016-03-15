@@ -28,10 +28,10 @@ nodist_include_HEADERS = anttweakbar.mod
 libAntTweakBar_la_LIBADD = $(F03GL_LIBS) $(FCLIBS)
 endif
 
-# these are not required on Unix, keep them in package anyway
+# these are not required with autotools, keep them in package anyway
 EXTRA_DIST = TwDirect3D9.cpp TwDirect3D10.cpp TwDirect3D11.cpp TwDirect3D11.hlsl \
  TwEventSFML.cpp TwEventWin.c \
- AntTweakBar.rc AntTweakBar.sln AntTweakBar.vcproj Readme.txt
+ AntTweakBar.rc AntTweakBar.vcproj Readme.txt
 
 # add to package files on subdir res/
 EXTRA_DIST += res/cur00000.cur res/cur00001.cur res/cur00002.cur	\
@@ -46,7 +46,8 @@ EXTRA_DIST += res/cur00000.cur res/cur00001.cur res/cur00002.cur	\
  res/FontSmall.pgm res/mask00.pbm res/mask01.pbm res/mask02.pbm		\
  res/mask03.pbm res/mask04.pbm res/mask05.pbm res/mask06.pbm		\
  res/mask07.pbm res/mask08.pbm res/mask09.pbm res/mask10.pbm		\
- res/mask11.pbm res/mask12.pbm res/mask13.pbm res/TwXCursors.h
+ res/mask11.pbm res/mask12.pbm res/mask13.pbm res/RuFont.txt		\
+ res/TwXCursors.h
 
 # GLCore sources
 EXTRA_DIST += LoadOGLCore.cpp TwOpenGLCore.cpp

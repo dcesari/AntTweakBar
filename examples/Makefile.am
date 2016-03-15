@@ -45,7 +45,7 @@ endif
 
 pkgdoc_DATA = TwSimpleGLUT.c TwPlotfunc.f90 TwSimpleSDL.c TwSimpleGLFW.c TwAdvanced1.cpp TwString.cpp
 
-EXTRA_DIST = Readme.txt Examples.sln \
+EXTRA_DIST = Readme.txt \
  TwSimpleDX9.cpp TwSimpleDX10.cpp TwSimpleDX11.cpp TwSimpleSFML.cpp \
  d3d10vs2003.h glfw.h TwSimpleDX11.hlsl \
  TwAdvanced1.vcproj TwSimpleDX10.vcproj TwSimpleGLUT.vcproj \
