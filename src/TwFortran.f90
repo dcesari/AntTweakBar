@@ -48,7 +48,7 @@ TYPE, BIND(C) :: CTwEnumVal
   TYPE(c_ptr) :: label
 END TYPE CTwEnumVal
 
-!PRIVATE twaddbutton_c ! gives warning
+
 INTERFACE
   FUNCTION twaddbutton_c(bar, name, callback, clientdata, def) &
    BIND(C,NAME="TwAddButton")
@@ -442,7 +442,7 @@ FUNCTION tw_type_csstring(n)
 INTEGER, INTENT(in) :: n
 INTEGER :: tw_type_csstring
 
-tw_type_csstring = Z'30000000'+IAND(n,Z'0fffffff')
+tw_type_csstring = INT(Z'30000000')+IAND(n,INT(Z'0fffffff'))
 ! 0x30000000+((n)&0xfffffff)
 ! Null-terminated C Static String of size n (defined as char[n], with n<2^28)
 END FUNCTION tw_type_csstring
@@ -453,7 +453,7 @@ FUNCTION tw_len_csstring(csstring)
 INTEGER(kind=c_int),VALUE :: csstring
 INTEGER :: tw_len_csstring
 
-tw_len_csstring = csstring - Z'30000000'
+tw_len_csstring = csstring - INT(Z'30000000')
 
 END FUNCTION tw_len_csstring
 
@@ -788,7 +788,7 @@ INTEGER :: i
 
 fchar = cstr
 DO i = 1, LEN(fchar)
-  IF (fchar(i:i) == CHAR(0)) THEN !if null-terminated pad with blanjs
+  IF (fchar(i:i) == CHAR(0)) THEN !if null-terminated pad with blanks
     fchar(i:) = ' '
     EXIT
   ENDIF
