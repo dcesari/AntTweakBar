@@ -145,7 +145,7 @@ AM_CONDITIONAL(DEBUG, test "x$enableval" = "xyes")
 
 AC_PROG_LIBTOOL
 
-pkgdocdir='${datadir}/doc/${PACKAGE}-${VERSION}'
+pkgdocdir='${datadir}/doc/${PACKAGE}'
 AC_SUBST(pkgdocdir)
 
 AC_CONFIG_FILES([

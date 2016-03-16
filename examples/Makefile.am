@@ -10,12 +10,14 @@ endif
 noinst_PROGRAMS =
 
 if GLUT
-noinst_PROGRAMS += TwSimpleGLUT TwDualGLUT
+noinst_PROGRAMS += TwSimpleGLUT TwDualGLUT TwString
 
 TwSimpleGLUT_SOURCES = TwSimpleGLUT.c
 TwDualGLUT_SOURCES = TwDualGLUT.c
+TwString_SOURCES = TwString.cpp
 TwSimpleGLUT_LDADD = ../src/libAntTweakBar.la $(GLUT_LIBS) $(GLU_LIBS)
 TwDualGLUT_LDADD = ../src/libAntTweakBar.la $(GLUT_LIBS) $(GLU_LIBS)
+TwString_LDADD = ../src/libAntTweakBar.la $(GLUT_LIBS) $(GLU_LIBS)
 
 if FORTRAN_BINDINGS
 noinst_PROGRAMS += TwPlotfunc
@@ -26,10 +28,12 @@ endif
 endif
 
 if SDL
-noinst_PROGRAMS += TwSimpleSDL
+noinst_PROGRAMS += TwSimpleSDL # TwGLCoreSDL
 
 TwSimpleSDL_SOURCES = TwSimpleSDL.c
+#TwGLCoreSDL_SOURCES = TwGLCoreSDL.c
 TwSimpleSDL_LDADD = ../src/libAntTweakBar.la $(SDL_LIBS) $(GLU_LIBS)
+#TwGLCoreSDL_LDADD = ../src/libAntTweakBar.la $(SDL_LIBS) $(GLU_LIBS)
 endif
 
 if GLFW
