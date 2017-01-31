@@ -1,6 +1,6 @@
 Name:		AntTweakBar
 Version:	1.16
-Release:	1%{?dist}
+Release:	99%{?dist}
 Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
@@ -13,6 +13,7 @@ BuildRequires: mesa-libGLU-devel
 BuildRequires: freeglut-devel
 BuildRequires: libX11-devel
 BuildRequires: xorg-x11-proto-devel
+BuildRequires: gcc-gfortran, f03gl-devel
 
 # DOS mode file in upstream source makes this necessary for any patches
 %global _default_patch_fuzz 2
