@@ -1,6 +1,6 @@
 Name:		AntTweakBar
 Version:	1.16
-Release:	2%{?dist}
+Release:	1%{?dist}
 Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
