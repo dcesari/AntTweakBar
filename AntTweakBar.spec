@@ -1,6 +1,6 @@
 Name:		AntTweakBar
 Version:	1.16
-Release:	99%{?dist}
+Release:	100%{?dist}
 Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
@@ -82,6 +82,9 @@ rm -rf "%{buildroot}"
 %postun -p /sbin/ldconfig
 
 %changelog
+* Wed Feb 22 2017 Unknown name <dcesari@arpae.it> 1.16-100
+- new package built with tito
+
 * Tue Jul 08 2014 David Brown <david.brown@pnnl.gov> - 1.16-1
 - New upstream version
 
