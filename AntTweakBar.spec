@@ -13,7 +13,7 @@ BuildRequires: mesa-libGLU-devel
 BuildRequires: freeglut-devel
 BuildRequires: libX11-devel
 BuildRequires: xorg-x11-proto-devel
-BuildRequires: gcc-gfortran, f03gl-devel
+BuildRequires: gcc-gfortran, f03gl-devel, libtool
 
 # DOS mode file in upstream source makes this necessary for any patches
 %global _default_patch_fuzz 2
@@ -46,6 +46,7 @@ for file in examples/TwAdvanced1.cpp examples/TwSimpleGLUT.c \
 done
 
 %build
+autoreconf -ifv
 %configure --enable-fortran --disable-examples FCFLAGS="%{optflags} -I%{_fmoddir}/GL"
 make
 
