@@ -5,7 +5,8 @@ Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
 URL:		http://anttweakbar.sourceforge.net/doc/
-Source0:	anttweakbar-%{version}.tar.gz
+#Source0:	anttweakbar-%{version}.tar.gz
+Source0:	AntTweakBar-%{version}.tar.gz
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: mesa-libGL-devel
