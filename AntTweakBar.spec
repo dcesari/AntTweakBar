@@ -1,6 +1,6 @@
 Name:		AntTweakBar
 Version:	1.16
-Release:	101%{?dist}
+Release:	102%{?dist}
 Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
@@ -84,6 +84,9 @@ rm -rf "%{buildroot}"
 %postun -p /sbin/ldconfig
 
 %changelog
+* Thu Feb 23 2017 Unknown name <dcesari@arpae.it> 1.16-102
+- rename also build dir fot tito (dcesari@arpae.it)
+
 * Thu Feb 23 2017 Unknown name <dcesari@arpae.it> 1.16-101
 - rename tar in spec for tito (dcesari@arpae.it)
 
