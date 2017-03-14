@@ -5,8 +5,13 @@ Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
 URL:		http://anttweakbar.sourceforge.net/doc/
-#Source0:	anttweakbar-%{version}.tar.gz
-Source0:	AntTweakBar-%{version}.tar.gz
+# autoconf lowercases
+%define acname anttweakbar
+%if 0%{?_tito_build:1}
+Source0:	%{name}-%{version}.tar.gz
+%else
+Source0:	%{acname}-%{version}.tar.gz
+%endif
 BuildRoot:  %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires: mesa-libGL-devel
@@ -19,8 +24,6 @@ BuildRequires: gcc-gfortran, f03gl-devel, libtool
 # DOS mode file in upstream source makes this necessary for any patches
 %global _default_patch_fuzz 2
 
-# autoconf lowercases
-%define acname anttweakbar
 
 %description
 Library for easily creating and using tweakable properties in an OpenGL
@@ -35,7 +38,7 @@ Requires: %{name} = %{version}-%{release}
 Header files for developing applications making use of AntTweakBar.
 
 %prep
-%if 0%{?in_tito:1}
+%if 0%{?_tito_build:1}
 %setup -q
 %else
 %setup -q -n %{acname}-%{version}
@@ -52,7 +55,9 @@ for file in examples/TwAdvanced1.cpp examples/TwSimpleGLUT.c \
 done
 
 %build
+%if 0%{?_tito_build:1}
 autoreconf -ifv
+%endif
 %configure --enable-fortran --disable-examples FCFLAGS="%{optflags} -I%{_fmoddir}/GL"
 make
 
