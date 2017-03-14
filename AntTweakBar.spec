@@ -35,8 +35,12 @@ Requires: %{name} = %{version}-%{release}
 Header files for developing applications making use of AntTweakBar.
 
 %prep
-#setup -q -n %{acname}-%{version}
+%if 0%{?in_tito:1}
 %setup -q
+%else
+%setup -q -n %{acname}-%{version}
+%endif
+
 
 # remove BOM from license file in place
 sed -i '1 s/^\xef\xbb\xbf//' License.txt
