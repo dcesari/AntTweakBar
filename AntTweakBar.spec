@@ -4,7 +4,7 @@ Release:	103%{?dist}
 Summary:	GUI library for videogame property editing UIs
 Group:		Applications/Internet
 License:	zlib
-URL:		http://anttweakbar.sourceforge.net/doc/
+URL:		https://github.com/dcesari/anttweakbar
 # autoconf lowercases
 %define acname anttweakbar
 %if 0%{?_tito_build:1}
