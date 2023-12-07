@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 
-AC_INIT(AntTweakBar, 1.16,)
+AC_INIT([AntTweakBar],[1.16],[])
 AC_CONFIG_HEADERS([config.h])
 AC_CONFIG_SRCDIR([configure.ac])
 AM_INIT_AUTOMAKE([foreign])
@@ -22,13 +22,11 @@ dnl Check for OpenGL headers and library
 AC_CHECK_HEADERS([GL/gl.h OpenGL/gl.h])
 AC_CHECK_LIB([GL],[glBegin],, AC_MSG_ERROR([OpenGL library not found]),)
 
-AC_ARG_ENABLE(examples, AC_HELP_STRING([--disable-examples],
-[disable build of examples for AntTweakBar (examples require additional libraries to be installed)]),,
+AC_ARG_ENABLE(examples, AS_HELP_STRING([--disable-examples],[disable build of examples for AntTweakBar (examples require additional libraries to be installed)]),,
 [enableval=yes])dnl default enable
 enableexamples=$enableval
 
-AC_ARG_ENABLE(fortran, AC_HELP_STRING([--enable-fortran],
-[enable build of Fortran 2003 bindings for AntTweakBar]),,
+AC_ARG_ENABLE(fortran, AS_HELP_STRING([--enable-fortran],[enable build of Fortran 2003 bindings for AntTweakBar]),,
 [enableval=no])dnl default disable
 AM_CONDITIONAL(FORTRAN_BINDINGS, test "x$enableval" = "xyes")
 enablefortran=$enableval
@@ -114,6 +112,8 @@ for finding F03GL modules and libraries]
 LIBS=$SAVELIBS
 F03GL_LIBS=-lf03gl
 AC_SUBST(F03GL_LIBS)
+FCLIBS=-lgfortran
+AC_SUBST(FCLIBS)
 
 AC_LANG_POP()dnl back to C
 
@@ -129,8 +129,7 @@ dnl F77=$FC
 dnl FFLAGS=$FCFLAGS
 
 dnl check for debug mode
-AC_ARG_ENABLE(debug-mode, AC_HELP_STRING([--enable-debug-mode],
-  [enable debug mode]), , [enableval=no])dnl default disable
+AC_ARG_ENABLE(debug-mode, AS_HELP_STRING([--enable-debug-mode],[enable debug mode]), , [enableval=no])dnl default disable
 if test "x$enableval" = "xyes"; then
 CFLAGS="$CFLAGS -g"
 CXXFLAGS="$CXXFLAGS -g"
@@ -143,7 +142,7 @@ FCFLAGS="$FCFLAGS -O"
 fi
 AM_CONDITIONAL(DEBUG, test "x$enableval" = "xyes")
 
-AC_PROG_LIBTOOL
+LT_INIT
 
 pkgdocdir='${datadir}/doc/${PACKAGE}'
 AC_SUBST(pkgdocdir)
